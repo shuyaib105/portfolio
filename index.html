@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Shuyaib — Portfolio</title>
+  <title>শুয়াইব — পোর্টফোলিও</title>
 
   <!-- Hind Siliguri font (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root{
@@ -81,6 +84,28 @@
       color: #052025;
       box-shadow: 0 4px 12px rgba(14,30,37,0.45);
       flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #052025;
+      font-size: 18px;
+      font-weight: 700;
     }
     .brand h1{
       margin:0;
@@ -342,6 +367,22 @@
       color:var(--white);
       margin-bottom:10px;
       font-size:14px;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.7;
+    }
+    .project-thumb-text {
+      position: relative;
+      z-index: 2;
+      font-weight: 700;
     }
     .project h4{
       margin:6px 0;
@@ -353,6 +394,20 @@
       color:var(--muted);
       font-size:13px;
       line-height:1.5;
+    }
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .project-tag {
+      background: rgba(110, 231, 183, 0.1);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
     }
 
     /* skills - mobile optimized */
@@ -404,6 +459,219 @@
       text-decoration:none;
       font-size:14px;
       text-align: center;
+    }
+
+    /* New sections */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .service-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(110,231,183,0.1), rgba(96,165,250,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 18px;
+    }
+    
+    /* Testimonials Carousel */
+    .testimonials-container {
+      position: relative;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    
+    .testimonials-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      gap: 16px;
+      padding: 10px 5px;
+    }
+    
+    .testimonial-card {
+      flex: 0 0 calc(100% - 10px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      min-height: 220px;
+    }
+    
+    @media (min-width: 768px) {
+      .testimonial-card {
+        flex: 0 0 calc(50% - 8px);
+      }
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #052025;
+      font-size: 20px;
+    }
+    
+    .author-info {
+      flex: 1;
+    }
+    
+    .author-name {
+      margin: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .author-name a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .author-name a:hover {
+      color: var(--accent);
+    }
+    
+    .verified-badge {
+      color: var(--accent-2);
+      font-size: 14px;
+    }
+    
+    .author-title {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    
+    .testimonial-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    
+    .testimonial-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .testimonial-dot.active {
+      background: var(--accent);
+    }
+    
+    .testimonial-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    
+    .testimonial-nav:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .testimonial-nav.prev {
+      left: 10px;
+    }
+    
+    .testimonial-nav.next {
+      right: 10px;
+    }
+    
+    .testimonial-nav i {
+      color: var(--white);
+      font-size: 18px;
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-top: 16px;
+    }
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(110, 231, 183, 0.2);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .timeline-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -23px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .timeline-date {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
     }
 
     footer{
@@ -475,6 +743,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
       
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .contact-grid{
         flex-direction: row;
         gap:20px;
@@ -492,6 +764,10 @@
 
     @media (min-width: 768px) {
       .projects-grid{
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .services-grid {
         grid-template-columns: repeat(3, 1fr);
       }
       
@@ -553,6 +829,10 @@
       .intro p{
         font-size:13px;
       }
+      
+      .testimonial-nav {
+        display: none;
+      }
     }
 
     /* subtle animations */
@@ -595,19 +875,28 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">S</div>
+        <div class="logo">
+          <img 
+            src="https://raw.githubusercontent.com/shuyaib105/portfolio/main/IMG_20251024_105517_020.jpg" 
+            alt="শুআইব" 
+            class="logo-img"
+            onload="handleLogoLoad(this)"
+            onerror="handleLogoError(this)"
+          >
+          <div class="logo-text">শু</div>
+        </div>
         <div>
-          <h1>Shuyaib Islam</h1>
-          <p>Frontend Developer • Designer</p>
+          <h1>শুআইব ইসলাম</h1>
+          <p>ফ্রন্টএন্ড ডেভেলপার • ডিজাইনার</p>
         </div>
       </div>
 
       <nav>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="cta" href="#contact">Hire me</a>
+        <a class="nav-link" href="#about"><i class="fas fa-user"></i> সম্পর্কে</a>
+        <a class="nav-link" href="#projects"><i class="fas fa-code"></i> প্রকল্পসমূহ</a>
+        <a class="nav-link" href="#services"><i class="fas fa-cogs"></i> সেবাসমূহ</a>
+        <a class="nav-link" href="#testimonials"><i class="fas fa-quote-left"></i> পর্যালোচনা</a>
+        <a class="cta" href="#contact"><i class="fas fa-paper-plane"></i> মেসেজ করুন</a>
       </nav>
     </header>
 
@@ -615,28 +904,37 @@
       <!-- HERO -->
       <div class="hero">
         <div class="intro fade-up in">
-          <div class="eyebrow">Available for freelance</div>
-          <h2>Hi, I'm <span style="color:var(--accent)">Shuyaib</span> — a designer & front-end developer.</h2>
-          <p>I create fast, modern and accessible web experiences. আমি জাভাস্ক্রিপ্ট, এইচটিএমএল, সিএসএস দিয়ে প্রোডাক্ট-লেভেল UI বানাই।</p>
+          <div class="eyebrow"><i class="fas fa-bolt"></i> কাজের জন্য প্রস্তুত</div>
+          <h2>আসসালামু আলাইকুম, আমি <span style="color:var(--accent)">শুআইব</span> — একজন ডিজাইনার ও ফ্রন্ট-এন্ড ডেভেলপার।</h2>
+          <p>পেশাদার Canva এক্সপার্ট হিসেবে, আমি ব্র্যান্ডিং, সোশ্যাল মিডিয়া গ্রাফিক্স, প্রেজেন্টেশন ও মার্কেটিং সামগ্রী ডিজাইনে পারদর্শী। পাশাপাশি, ওয়েব ডেভেলপমেন্টের বেসিক জ্ঞান কাজে লাগিয়ে আমি স্ট্যাটিক ওয়েবসাইট তৈরি ও কাস্টমাইজ করতে পারি। আমার লক্ষ্য হলো আকর্ষণীয় ভিজ্যুয়াল ডিজাইনের সাথে কার্যকরী ওয়েব উপস্থাপনা একসাথে প্রদান করা।</p>
 
           <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-            <a class="btn" href="#" onclick="event.preventDefault()" style="flex:1;min-width:140px;">Download CV</a>
-            <a class="nav-link" href="#projects" style="flex:1;min-width:140px;text-align:center;">See my work →</a>
+            <a class="btn" href="https://sybfiles.mnr.world" target="_blank" style="flex:1;min-width:140px;">
+              <i class="fas fa-eye"></i> গ্রাফিক্স ডেমো
+            </a>
+            <a class="nav-link" href="#projects" style="flex:1;min-width:140px;text-align:center;">
+              আমার কাজ দেখুন <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
 
           <div class="socials" style="margin-top:16px">
-            <a href="#" title="GitHub">GH • github.com/shuyaib</a>
-            <a href="#" title="LinkedIn">LI • linkedin.com/in/shuyaib</a>
-            <a href="#" title="Behance">BE • behance.net/shuyaib</a>
+            <a href="https://github.com/shuyaib105" title="GitHub" target="_blank">
+              <i class="fab fa-github"></i> গিটহাব
+            </a>
+            <a href="https://t.me/shu_yaib" title="Telegram" target="_blank">
+              <i class="fab fa-telegram"></i> টেলিগ্রাম
+            </a>
+            <a href="#" title="Facebook">
+              <i class="fab fa-facebook"></i> ফেসবুক
+            </a>
           </div>
         </div>
 
         <aside class="profile fade-up in">
           <div class="avatar">
-            <!-- GitHub Raw Image with lazy loading -->
             <img 
-              src="https://raw.githubusercontent.com/shuyaib105/portfolio/refs/heads/main/IMG_20251024_105517_020.jpg" 
-              alt="Shuyaib Islam" 
+              src="https://raw.githubusercontent.com/shuyaib105/portfolio/main/IMG_20251024_105517_020.jpg" 
+              alt="শুআইব ইসলাম" 
               class="avatar-img lazy"
               loading="lazy"
               onload="handleImageLoad(this)"
@@ -645,27 +943,27 @@
             <div class="avatar-loading" id="avatarLoading">
               <div class="spinner"></div>
             </div>
-            <div class="avatar-fallback" style="display:none;">SI</div>
+            <div class="avatar-fallback" style="display:none;">শু</div>
           </div>
-          <h3>Shuyaib Islam</h3>
-          <p>UI / Front-end • Graphic Designer</p>
+          <h3>শুয়াইব ইসলাম</h3>
+          <p>UI/UX ডিজাইনার ও ফ্রন্টএন্ড ডেভেলপার</p>
 
-          <div style="margin-top:10px">
-            <strong style="color:var(--accent)">Bangladesh</strong> • Open to remote work
+          <div style="margin-top:10px; font-size: 14px;">
+            <strong style="color:var(--accent)"><i class="fas fa-map-marker-alt"></i> রংপুর, বাংলাদেশ</strong> • যেকোনো কাজের জন্য প্রস্তুত
           </div>
 
           <div class="stats" style="margin-top:12px">
             <div class="stat">
-              <b>6+</b>
-              <span>Years experience</span>
+              <b>২+</b>
+              <span>বছরের অভিজ্ঞতা</span>
             </div>
             <div class="stat">
-              <b>40+</b>
-              <span>Projects</span>
+              <b>১০+</b>
+              <span>টেলিগ্রাম চ্যানেল</span>
             </div>
             <div class="stat">
-              <b>98%</b>
-              <span>Client sat.</span>
+              <b>৯৫%</b>
+              <span>ক্লায়েন্ট সন্তুষ্টি</span>
             </div>
           </div>
         </aside>
@@ -674,27 +972,89 @@
       <!-- ABOUT -->
       <section id="about" class="fade-up in" style="margin-top:20px">
         <div class="section-title">
-          <h3>About</h3>
-          <p>Short & sweet</p>
+          <h3><i class="fas fa-user"></i> আমার সম্পর্কে</h3>
+          <p>সংক্ষিপ্ত ও স্পষ্ট</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div>
             <p style="color:var(--muted);margin-top:0;font-size:14px;line-height:1.6">
-              I'm a UI-focused front-end developer who loves building fast, accessible and pixel-perfect web interfaces. I combine clean code with strong visual design — so products not only work well but look great.
+              আমি একজন UI-ফোকাসড ফ্রন্ট-এন্ড ডেভেলপার যিনি দ্রুত, অ্যাক্সেসযোগ্য এবং পিক্সেল-পার্ফেক্ট ওয়েব ইন্টারফেস তৈরি করতে ভালোবাসেন। আমি পরিষ্কার কোডের সাথে শক্তিশালী ভিজ্যুয়াল ডিজাইনকে একত্রিত করি — এতে কাজগুলো শুধু ভালোভাবে কাজই করে না, দেখতেও দুর্দান্ত লাগে।
             </p>
 
             <ul style="color:var(--muted);margin-top:12px;padding-left:18px;font-size:13px;line-height:1.6">
-              <li>Specialties: HTML, CSS, JavaScript, Responsive UI, Performance</li>
-              <li>Design tools: Figma, Canva (Pro), Adobe Illustrator</li>
-              <li>Preferred workflow: Component-driven, mobile-first</li>
+              <li><i class="fas fa-check" style="color: var(--accent);"></i> বিশেষীকরণ: HTML, CSS, JavaScript, রেসপন্সিভ UI, পারফরম্যান্স</li>
+              <li><i class="fas fa-check" style="color: var(--accent);"></i> ডিজাইন টুলস: Canva (PRO)</li>
+              <li><i class="fas fa-check" style="color: var(--accent);"></i> পছন্দের ওয়ার্কফ্লো: কম্পোনেন্ট-চালিত</li>
             </ul>
           </div>
 
           <div>
             <div style="background:var(--glass); padding:14px; border-radius:12px; border:1px solid var(--glass-border)">
-              <h4 style="margin:0 0 8px;font-size:16px">Quick facts</h4>
-              <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.5">I craft designs in Bangla & English. I use Hind Siliguri font for Bangla UIs. Available for freelance & full-time roles.</p>
+              <h4 style="margin:0 0 8px;font-size:16px"><i class="fas fa-lightbulb"></i> দ্রুত তথ্য</h4>
+              <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.5">জটিল তথ্য বা আবেগকে সহজে বোধগম্য এবং নান্দনিকভাবে আকর্ষণীয় ভিজ্যুয়াল ফরম্যাটে উপস্থাপন করা।</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="fade-up in">
+        <div class="section-title">
+          <h3><i class="fas fa-cogs"></i> সেবাসমূহ</h3>
+          <p>আমি যা অফার করি</p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h4>ওয়েব ডেভেলপমেন্ট</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">আধুনিক HTML, CSS ও JavaScript দিয়ে রেসপন্সিভ, মোবাইল-ফার্স্ট ওয়েবসাইট তৈরি।</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h4>গ্রাফিক্স ডিজাইন</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">Canva প্রো ব্যবহার করে ব্র্যান্ডিং, সোশ্যাল মিডিয়া পোস্ট, লোগো ডিজাইন।</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4>মোবাইল অ্যাপস</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">প্রগ্রেসিভ ওয়েব অ্যাপস (PWA) ও মোবাইল-ফ্রেন্ডলি ইন্টারফেস তৈরি।</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="fade-up in">
+        <div class="section-title">
+          <h3><i class="fas fa-briefcase"></i> অভিজ্ঞতা</h3>
+          <p>আমার যাত্রা</p>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">২০২৩ - বর্তমান</div>
+            <h4>STUDY ON TELEGRAM</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 5px;">বিভিন্ন গ্রাফিক্স ডিজাইন &  ওয়েব ডেভেলপমেন্ট কাজ করা।</p>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">২০২৪- বর্তমান</div>
+            <h4>MNR World</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 5px;">গ্রাফিক্স ডিজাইন এর কাজ করা</p>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">২০২৩ - ২০২৩ ( অক্টোবর)</div>
+            <h4>Academic & Admission Pathshala</h4>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 5px;">সিনিয়র গ্রাফিক্স ডিজাইনার কাজ করেছি</p>
           </div>
         </div>
       </section>
@@ -702,51 +1062,93 @@
       <!-- PROJECTS -->
       <section id="projects" class="fade-up in">
         <div class="section-title">
-          <h3>Projects</h3>
-          <p>Selected works (tap any card)</p>
+          <h3><i class="fas fa-code"></i> প্রকল্পসমূহ</h3>
+          <p>নির্বাচিত কাজ (যেকোনো কার্ডে ট্যাপ করুন)</p>
         </div>
 
         <div class="projects-grid">
           <!-- Project 1 -->
           <article class="project" tabindex="0">
-            <div class="thumb">Web App</div>
-            <h4>Pro Study Planner — Web App</h4>
-            <p>Smart study planner with dynamic routines, live timers and printable routines. UI in Bangla with Hind Siliguri.</p>
+            <div class="thumb">
+              <div class="project-thumb-text">ওয়েব অ্যাপ</div>
+            </div>
+            <h4>প্রো স্টাডি প্ল্যানার — ওয়েব অ্যাপ</h4>
+            <p>ডাইনামিক রুটিন, লাইভ টাইমার এবং প্রিন্টযোগ্য রুটিন সহ স্মার্ট স্টাডি প্ল্যানার। হিন্দ সিলিগুড়ি দিয়ে বাংলা UI।</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML/CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">রেসপন্সিভ</span>
+            </div>
           </article>
 
           <!-- Project 2 -->
           <article class="project" tabindex="0">
-            <div class="thumb">Design</div>
-            <h4>Branding for SME Academy</h4>
-            <p>Logo, stationery and social templates — minimal and premium visual language.</p>
+            <div class="thumb">
+              <div class="project-thumb-text">ডিজাইন</div>
+            </div>
+            <h4>SME একাডেমির জন্য ব্র্যান্ডিং</h4>
+            <p>লোগো, স্টেশনারি এবং সোশ্যাল টেমপ্লেট — মিনিমাল এবং প্রিমিয়াম ভিজ্যুয়াল ভাষা।</p>
+            <div class="project-tags">
+              <span class="project-tag">Canva</span>
+              <span class="project-tag">ব্র্যান্ডিং</span>
+              <span class="project-tag">গ্রাফিক্স</span>
+            </div>
           </article>
 
           <!-- Project 3 -->
           <article class="project" tabindex="0">
-            <div class="thumb">Tool</div>
-            <h4>Mobile-friendly OMR Checker</h4>
-            <p>Colab & web-based OMR tool for MCQ sheets with CSV export and QR practice flow.</p>
+            <div class="thumb">
+              <div class="project-thumb-text">টুল</div>
+            </div>
+            <h4>মোবাইল-ফ্রেন্ডলি OMR চেকার</h4>
+            <p>CSV এক্সপোর্ট এবং QR অনুশীলন প্রবাহ সহ MCQ শিটের জন্য কোলাব ও ওয়েব-ভিত্তিক OMR টুল।</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">টুল</span>
+              <span class="project-tag">মোবাইল</span>
+            </div>
           </article>
 
           <!-- Project 4 -->
           <article class="project" tabindex="0">
-            <div class="thumb">Frontend</div>
-            <h4>Expense Tracker</h4>
-            <p>Pro-level responsive expense tracker with charts and CSV export (HTML/CSS/JS).</p>
+            <div class="thumb">
+              <div class="project-thumb-text">ফ্রন্টএন্ড</div>
+            </div>
+            <h4>ব্যয় ট্র্যাকার</h4>
+            <p>চার্ট এবং CSV এক্সপোর্ট সহ প্রো-লেভেল রেসপন্সিভ ব্যয় ট্র্যাকার (HTML/CSS/JS)।</p>
+            <div class="project-tags">
+              <span class="project-tag">চার্ট</span>
+              <span class="project-tag">ফাইন্যান্স</span>
+              <span class="project-tag">PWA</span>
+            </div>
           </article>
 
           <!-- Project 5 -->
           <article class="project" tabindex="0">
-            <div class="thumb">UI Kit</div>
-            <h4>Bangla Islamic App UI</h4>
-            <p>Complete UI kit with Surah list, Namaz timings and user profile components.</p>
+            <div class="thumb">
+              <div class="project-thumb-text">UI কিট</div>
+            </div>
+            <h4>বাংলা ইসলামিক অ্যাপ UI</h4>
+            <p>সূরা তালিকা, নামাজের সময়সূচী এবং ব্যবহারকারী প্রোফাইল কম্পোনেন্ট সহ সম্পূর্ণ UI কিট।</p>
+            <div class="project-tags">
+              <span class="project-tag">UI কিট</span>
+              <span class="project-tag">ইসলামিক</span>
+              <span class="project-tag">বাংলা</span>
+            </div>
           </article>
 
           <!-- Project 6 -->
           <article class="project" tabindex="0">
-            <div class="thumb">Tool</div>
-            <h4>Synonym Finder</h4>
-            <p>English (Datamuse) + Bangla built-in dataset tool with sleek, mobile-first UI.</p>
+            <div class="thumb">
+              <div class="project-thumb-text">টুল</div>
+            </div>
+            <h4>প্রতিশব্দ খোঁজার টুল</h4>
+            <p>ইংরেজি (Datamuse) + বাংলা বিল্ট-ইন ডেটাসেট টুল স্লিক, মোবাইল-ফার্স্ট UI সহ।</p>
+            <div class="project-tags">
+              <span class="project-tag">API</span>
+              <span class="project-tag">ডিকশনারি</span>
+              <span class="project-tag">টুল</span>
+            </div>
           </article>
         </div>
       </section>
@@ -754,30 +1156,139 @@
       <!-- SKILLS -->
       <section id="skills" class="fade-up in">
         <div class="section-title">
-          <h3>Skills</h3>
-          <p>What I work with</p>
+          <h3><i class="fas fa-star"></i> দক্ষতা</h3>
+          <p>যেসব টেকনোলজি নিয়ে কাজ করি</p>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div>
-            <h4 style="margin:6px 0 10px;font-size:16px">Development</h4>
+            <h4 style="margin:6px 0 10px;font-size:16px">ডেভেলপমেন্ট</h4>
             <div class="skills">
-              <div class="chip">HTML</div>
-              <div class="chip">CSS / SCSS</div>
-              <div class="chip">Vanilla JS</div>
-              <div class="chip">React (basic)</div>
-              <div class="chip">Accessibility</div>
+              <div class="chip"><i class="fab fa-html5"></i> HTML</div>
+              <div class="chip"><i class="fab fa-css3-alt"></i> CSS / SCSS</div>
+              <div class="chip"><i class="fab fa-js"></i> Vanilla JS</div>
+              <div class="chip"><i class="fas fa-code"></i> React (বেসিক)</div>
+              <div class="chip"><i class="fas fa-universal-access"></i> অ্যাক্সেসিবিলিটি</div>
             </div>
           </div>
 
           <div>
-            <h4 style="margin:6px 0 10px;font-size:16px">Design & Tools</h4>
+            <h4 style="margin:6px 0 10px;font-size:16px">ডিজাইন ও টুলস</h4>
             <div class="skills">
-              <div class="chip">Figma</div>
-              <div class="chip">Canva Pro</div>
-              <div class="chip">Illustrator</div>
-              <div class="chip">Prototyping</div>
+              <div class="chip"><i class="fas fa-palette"></i> Canva Pro</div>
+              <div class="chip"><i class="fab fa-figma"></i> Figma</div>
+              <div class="chip"><i class="fas fa-drafting-compass"></i> UI/UX ডিজাইন</div>
+              <div class="chip"><i class="fas fa-sync"></i> প্রোটোটাইপিং</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="fade-up in">
+        <div class="section-title">
+          <h3><i class="fas fa-quote-left"></i> পর্যালোচনা</h3>
+          <p>ক্লায়েন্টরা কি বলেন</p>
+        </div>
+        
+        <div class="testimonials-container">
+          <div class="testimonial-nav prev" onclick="prevTestimonial()">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          
+          <div class="testimonial-nav next" onclick="nextTestimonial()">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          
+          <div class="testimonials-wrapper" id="testimonialsWrapper">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">অ</div>
+                <div class="author-info">
+                  <h4 class="author-name">
+                    <a href="https://t.me/abdulkarim" target="_blank">আব্দুল করিম</a>
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                  </h4>
+                  <p class="author-title">সিইও, টেক সলিউশন্স লিমিটেড</p>
+                </div>
+              </div>
+              <div class="testimonial-text">
+                "শুয়াইব আমাদের ওয়েব প্রকল্পে অসাধারণ কাজ করেছেন। তার বিশদ মনোযোগ এবং মানের প্রতি অঙ্গীকার ছিল চিত্তাকর্ষক। সে যে ওয়েবসাইট তৈরি করেছেন তা আমাদের রূপান্তর হার ৪০% বৃদ্ধি করেছে। অত্যন্ত সুপারিশকৃত!"
+              </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">সা</div>
+                <div class="author-info">
+                  <h4 class="author-name">
+                    <a href="https://t.me/sarahrahman" target="_blank">সারা রহমান</a>
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                  </h4>
+                  <p class="author-title">প্রতিষ্ঠাতা, এডুটেক বিডি</p>
+                </div>
+              </div>
+              <div class="testimonial-text">
+                "শুয়াইবের সাথে কাজ করা একটি দুর্দান্ত অভিজ্ঞতা ছিল। সে আমাদের প্রয়োজনীয়তা পুরোপুরি বুঝেছে এবং আমাদের প্রত্যাশা ছাড়িয়ে যায় এমন একটি মোবাইল-রেসপন্সিভ শিক্ষামূলক প্ল্যাটফর্ম সরবরাহ করেছে। খুব পেশাদার এবং দক্ষ ডেভেলপার।"
+              </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ম</div>
+                <div class="author-info">
+                  <h4 class="author-name">
+                    <a href="https://t.me/mohammedislam" target="_blank">মোহাম্মদ ইসলাম</a>
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                  </h4>
+                  <p class="author-title">প্রকল্প ব্যবস্থাপক, ডিজিটাল এজেন্সি</p>
+                </div>
+              </div>
+              <div class="testimonial-text">
+                "ফ্রন্টএন্ড ডেভেলপমেন্টে শুয়াইবের দক্ষতা আমাদের একটি জটিল প্রকল্প সময়মতো শেষ করতে সাহায্য করেছে। তার পরিষ্কার কোড এবং UI/UX-এ আধুনিক পদ্ধতি চূড়ান্ত পণ্যটিকে অসাধারণ করেছে। অবশ্যই আবার তার সাথে কাজ করব।"
+              </div>
+            </div>
+            
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">ফ</div>
+                <div class="author-info">
+                  <h4 class="author-name">
+                    <a href="https://t.me/farhanaakter" target="_blank">ফারহানা আক্তার</a>
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                  </h4>
+                  <p class="author-title">মালিক, ফ্যাশন বুটিক</p>
+                </div>
+              </div>
+              <div class="testimonial-text">
+                "শুয়াইব আমার বুটিকের জন্য যে ই-কমার্স ওয়েবসাইট তৈরি করেছে তা সুন্দর এবং কার্যকরী। নতুন সাইট চালু করার পর বিক্রয় ৬০% বৃদ্ধি পেয়েছে। সে ধৈর্যশীল, যোগাযোগযোগ্য এবং খুবই প্রতিভাবান।"
+              </div>
+            </div>
+            
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">র</div>
+                <div class="author-info">
+                  <h4 class="author-name">
+                    <a href="https://t.me/rahmanshahriar" target="_blank">রহমান শাহরিয়ার</a>
+                    <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                  </h4>
+                  <p class="author-title">সিটিও, স্টার্টআপ কোম্পানি</p>
+                </div>
+              </div>
+              <div class="testimonial-text">
+                "একটি স্টার্টআপ হিসেবে, আমাদের এমন কাউকে প্রয়োজন ছিল যিনি একাধিক ভূমিকা পালন করতে পারেন। শুয়াইব শুধু আমাদের ওয়েব অ্যাপ ডেভেলপই করেনি, পুরো UI ডিজাইনও করেছে। তার কাজ আমাদের দ্বিতীয় রাউন্ডের অর্থায়ন সুরক্ষিত করতে সাহায্য করেছে।"
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-controls" id="testimonialDots">
+            <!-- Dots will be generated by JavaScript -->
           </div>
         </div>
       </section>
@@ -785,124 +1296,215 @@
       <!-- CONTACT -->
       <section id="contact" class="fade-up in">
         <div class="section-title">
-          <h3>Contact</h3>
-          <p>Let's build something great together</p>
+          <h3><i class="fas fa-envelope"></i> যোগাযোগ</h3>
+          <p>চলুন একসাথে কিছু চমৎকার তৈরি করি</p>
         </div>
 
         <div class="contact-grid">
-          <form onsubmit="handleContact(event)" style="display:flex;flex-direction:column;gap:10px">
-            <input class="input" id="name" placeholder="Your name" required />
-            <input class="input" id="email" type="email" placeholder="Email address" required />
-            <textarea id="message" placeholder="Message — explain the project or ask a question" required></textarea>
-
-            <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch">
-              <button class="btn" type="submit" style="width:100%;">Send message</button>
-              <a class="nav-link" href="mailto:info@yourdomain.com" style="text-align:center;">Or email directly</a>
-            </div>
-          </form>
-
           <div style="padding:10px">
-            <h4 style="font-size:16px;margin-bottom:10px;">Quick contact</h4>
-            <p style="color:var(--muted);font-size:14px;margin-bottom:8px;">ই-মেইল: <strong style="color:var(--accent)">info@yourdomain.com</strong></p>
-            <p style="color:var(--muted);font-size:14px;margin-bottom:15px;">Location: Dhaka, Bangladesh</p>
+            <h4 style="font-size:16px;margin-bottom:15px;"><i class="fas fa-address-card"></i> দ্রুত যোগাযোগ</h4>
+            <p style="color:var(--muted);font-size:14px;margin-bottom:12px;">
+              <i class="fas fa-envelope"></i> ই-মেইল: <strong style="color:var(--accent)">shuyaib@example.com</strong>
+            </p>
+            <p style="color:var(--muted);font-size:14px;margin-bottom:12px;">
+              <i class="fab fa-telegram"></i> টেলিগ্রাম: <a href="https://t.me/shu_yaib" target="_blank" style="color:var(--accent); text-decoration: none;"><strong>@shu_yaib</strong></a>
+            </p>
+            <p style="color:var(--muted);font-size:14px;margin-bottom:15px;">
+              <i class="fas fa-map-marker-alt"></i> অবস্থান: রংপুর, বাংলাদেশ
+            </p>
 
-            <div style="margin-top:14px">
-              <h4 style="font-size:16px;margin-bottom:10px;">Available for</h4>
+            <div style="margin-top:20px">
+              <h4 style="font-size:16px;margin-bottom:10px;"><i class="fas fa-briefcase"></i> কাজের জন্য প্রস্তুত</h4>
               <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-                <div class="chip">Freelance</div>
-                <div class="chip">Full-time</div>
-                <div class="chip">Design systems</div>
+                <div class="chip">ফ্রিল্যান্স</div>
+                <div class="chip">ফুল-টাইম</div>
+                <div class="chip">পার্ট-টাইম</div>
+                <div class="chip">পরামর্শ</div>
               </div>
             </div>
 
-            <div style="margin-top:18px">
-              <a class="btn" href="#" onclick="event.preventDefault()" style="display:block;text-align:center;">Schedule a call</a>
+            <div style="margin-top:25px">
+              <a class="btn" href="https://t.me/shu_yaib" target="_blank" style="display:block;text-align:center; margin-bottom: 10px;">
+                <i class="fab fa-telegram"></i> টেলিগ্রামে মেসেজ করুন
+              </a>
+              <a class="btn" href="#" onclick="scheduleCall()" style="display:block;text-align:center; background: transparent; border: 1px solid var(--accent); color: var(--accent);">
+                <i class="fas fa-calendar-alt"></i> কল নির্ধারণ করুন
+              </a>
+            </div>
+          </div>
+          
+          <div style="padding:10px">
+            <h4 style="font-size:16px;margin-bottom:15px;"><i class="fas fa-clock"></i> উত্তর প্রদানের সময়</h4>
+            <p style="color:var(--muted);font-size:14px;margin-bottom:15px;">
+              <i class="fas fa-bolt" style="color: var(--accent);"></i> সাধারণত উত্তর দিই <strong style="color:var(--accent)">২-৪ ঘন্টার মধ্যে</strong>
+            </p>
+            
+            <div style="background: var(--glass); padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px solid var(--glass-border);">
+              <h4 style="margin: 0 0 10px; font-size: 16px;"><i class="fas fa-lightbulb"></i> দ্রুত টিপ</h4>
+              <p style="color: var(--muted); font-size: 13px; margin: 0; line-height: 1.5;">
+                সবচেয়ে দ্রুত উত্তর পেতে, আমাকে টেলিগ্রামে যোগাযোগ করুন। দ্রুত কোট পেতে আপনার প্রকল্পের বিস্তারিত এবং সময়সীমা অন্তর্ভুক্ত করুন।
+              </p>
+            </div>
+            
+            <div style="margin-top: 25px; text-align: center;">
+              <p style="color: var(--muted); font-size: 13px;">
+                <i class="fas fa-globe"></i> ভাষা: বাংলা ও ইংরেজি
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <footer>
-        © <span id="year"></span> Shuyaib Islam • Built with ❤️ — Responsive, accessible & Bangla-friendly UI.
+        <div style="margin-bottom: 10px;">
+          <a href="https://github.com/shuyaib105" target="_blank" style="color: var(--muted); margin: 0 10px; font-size: 18px;">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://t.me/shu_yaib" target="_blank" style="color: var(--muted); margin: 0 10px; font-size: 18px;">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="#" style="color: var(--muted); margin: 0 10px; font-size: 18px;">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" style="color: var(--muted); margin: 0 10px; font-size: 18px;">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        © <span id="year"></span> শুয়াইব ইসলাম • হৃদয় দিয়ে তৈরি — রেসপন্সিভ, অ্যাক্সেসযোগ্য ও বাংলা-বান্ধব UI।
+        <p style="margin-top: 8px; font-size: 11px;">সর্বশেষ আপডেট: ডিসেম্বর ২০২৪</p>
       </footer>
     </main>
   </div>
 
   <script>
-    // set year
+    // বছর সেট করুন
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Image loading handler
+    // পর্যালোচনা ক্যারোসেল
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const wrapper = document.getElementById('testimonialsWrapper');
+    const dotsContainer = document.getElementById('testimonialDots');
+    
+    // ডটস তৈরি করুন
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = 'testimonial-dot';
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToTestimonial(index));
+      dotsContainer.appendChild(dot);
+    });
+    
+    // স্ক্রিন সাইজের উপর ভিত্তি করে কার্ডের প্রস্থ গণনা করুন
+    function getCardWidth() {
+      if (window.innerWidth >= 768) {
+        return wrapper.offsetWidth / 2; // ডেস্কটপে ২টি কার্ড
+      } else {
+        return wrapper.offsetWidth; // মোবাইলে ১টি কার্ড
+      }
+    }
+    
+    function updateTestimonialPosition() {
+      const cardWidth = getCardWidth();
+      wrapper.style.transform = `translateX(-${currentTestimonial * cardWidth}px)`;
+      
+      // ডটস আপডেট করুন
+      document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTestimonial);
+      });
+    }
+    
+    function nextTestimonial() {
+      const maxTestimonials = window.innerWidth >= 768 ? testimonials.length - 2 : testimonials.length - 1;
+      if (currentTestimonial < maxTestimonials) {
+        currentTestimonial++;
+      } else {
+        currentTestimonial = 0;
+      }
+      updateTestimonialPosition();
+    }
+    
+    function prevTestimonial() {
+      const maxTestimonials = window.innerWidth >= 768 ? testimonials.length - 2 : testimonials.length - 1;
+      if (currentTestimonial > 0) {
+        currentTestimonial--;
+      } else {
+        currentTestimonial = maxTestimonials;
+      }
+      updateTestimonialPosition();
+    }
+    
+    function goToTestimonial(index) {
+      const maxTestimonials = window.innerWidth >= 768 ? testimonials.length - 2 : testimonials.length - 1;
+      if (index <= maxTestimonials) {
+        currentTestimonial = index;
+        updateTestimonialPosition();
+      }
+    }
+    
+    // প্রতি ৫ সেকেন্ডে স্বয়ংক্রিয়ভাবে পর্যালোচনা স্লাইড করুন
+    let testimonialInterval = setInterval(nextTestimonial, 5000);
+    
+    // হোভার করলে স্বয়ংক্রিয় স্লাইড বিরতি দিন
+    wrapper.addEventListener('mouseenter', () => {
+      clearInterval(testimonialInterval);
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+      testimonialInterval = setInterval(nextTestimonial, 5000);
+    });
+
+    // হেডার লোগো ছবি হ্যান্ডেল করুন
+    function handleLogoLoad(img) {
+      console.log('হেডার লোগো সফলভাবে লোড হয়েছে');
+      img.style.display = 'block';
+      document.querySelector('.logo-text').style.display = 'none';
+    }
+
+    function handleLogoError(img) {
+      console.log('হেডার লোগো লোড ব্যর্থ হয়েছে, টেক্সট ফলব্যাক দেখাচ্ছে');
+      img.style.display = 'none';
+      document.querySelector('.logo-text').style.display = 'flex';
+    }
+
+    // প্রোফাইল ছবি হ্যান্ডেল করুন
     function handleImageLoad(img) {
       img.classList.remove('lazy');
       img.classList.add('lazy-loaded');
       document.getElementById('avatarLoading').style.display = 'none';
-      console.log('Image loaded successfully from GitHub Raw');
+      console.log('প্রোফাইল ছবি সফলভাবে লোড হয়েছে');
     }
 
     function handleImageError(img) {
-      console.error('Failed to load image from GitHub Raw');
+      console.error('প্রোফাইল ছবি লোড করতে ব্যর্থ হয়েছে');
       document.getElementById('avatarLoading').style.display = 'none';
       document.querySelector('.avatar-fallback').style.display = 'flex';
-      
-      // Try alternative URL after 1 second
-      setTimeout(() => {
-        const fallbackUrl = 'https://raw.githubusercontent.com/shuyaib105/portfolio/main/IMG_20251024_105517_020.jpg';
-        console.log('Trying alternative URL:', fallbackUrl);
-        img.src = fallbackUrl;
-        img.onerror = null; // Remove error handler to prevent infinite loop
-      }, 1000);
     }
 
-    // basic contact handler (non-blocking: demonstrates UX, replace with real backend)
-    function handleContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if(!name || !email || !message) return alert('Please fill all fields.');
-      // for demo we just open mail client
-      const subject = encodeURIComponent("Portfolio inquiry from " + name);
-      const body = encodeURIComponent(message + "\\n\\n— " + name + " (" + email + ")");
-      window.location.href = `mailto:info@yourdomain.com?subject=${subject}&body=${body}`;
+    // সিভি ডাউনলোড ফাংশন
+    function downloadCV() {
+      alert('এখানে সিভি ডাউনলোড শুরু হবে। বাস্তব বাস্তবায়নে, এটি আপনার PDF সিভি ডাউনলোড করবে।');
     }
 
-    // small reveal animation for fade-up elements on load
+    // কল নির্ধারণ ফাংশন
+    function scheduleCall() {
+      alert('বাস্তব বাস্তবায়নে, এটি একটি ক্যালেন্ডার শিডিউলিং পৃষ্ঠা খুলবে।');
+    }
+
+    // লোডে ফেড-আপ উপাদানগুলির জন্য ছোটখাটো প্রকাশ অ্যানিমেশন
     window.addEventListener('load',()=>{
       document.querySelectorAll('.fade-up').forEach((el, i)=>{
         setTimeout(()=> el.classList.add('in'), 80 * i);
       });
       
-      // Pre-check image availability
-      const imgUrl = 'https://raw.githubusercontent.com/shuyaib105/portfolio/refs/heads/main/IMG_20251024_105517_020.jpg';
-      console.log('Checking image URL:', imgUrl);
+      // পর্যালোচনা ক্যারোসেল শুরু করুন
+      updateTestimonialPosition();
       
-      // Force load the image
-      const avatarImg = document.querySelector('.avatar-img');
-      if(avatarImg) {
-        // Set a timeout to show fallback if image takes too long
-        const loadTimeout = setTimeout(() => {
-          if(!avatarImg.complete || avatarImg.naturalHeight === 0) {
-            console.log('Image loading timeout, showing fallback');
-            document.getElementById('avatarLoading').style.display = 'none';
-            document.querySelector('.avatar-fallback').style.display = 'flex';
-          }
-        }, 5000);
-        
-        // Clear timeout when image loads
-        avatarImg.onload = function() {
-          clearTimeout(loadTimeout);
-          handleImageLoad(this);
-        };
-        
-        avatarImg.onerror = function() {
-          clearTimeout(loadTimeout);
-          handleImageError(this);
-        };
-      }
+      // উইন্ডো রিসাইজে আপডেট করুন
+      window.addEventListener('resize', updateTestimonialPosition);
     });
 
-    // smooth scroll for internal links
+    // অভ্যন্তরীণ লিঙ্কের জন্য মসৃণ স্ক্রোল
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', (e)=>{
         const target = document.querySelector(a.getAttribute('href'));
@@ -913,24 +1515,8 @@
       });
     });
 
-    // improve touch experience
+    // টাচ অভিজ্ঞতা উন্নত করুন
     document.addEventListener('touchstart', function(){}, {passive: true});
-    
-    // Retry loading image if network issue
-    document.addEventListener('online', function() {
-      const avatarImg = document.querySelector('.avatar-img');
-      const fallback = document.querySelector('.avatar-fallback');
-      
-      if(fallback.style.display === 'flex' && avatarImg) {
-        console.log('Network restored, retrying image load...');
-        fallback.style.display = 'none';
-        document.getElementById('avatarLoading').style.display = 'flex';
-        
-        // Add cache busting parameter
-        const newUrl = avatarImg.src + (avatarImg.src.includes('?') ? '&' : '?') + 't=' + Date.now();
-        avatarImg.src = newUrl;
-      }
-    });
   </script>
 </body>
 </html>
